@@ -3,6 +3,6 @@ from member import views
 
 urlpatterns = [
     path('',views.index),
-    path('about',views.about),
+    path('ourmember',views.ourmember),
     path('contactus',views.contactus),
 ]

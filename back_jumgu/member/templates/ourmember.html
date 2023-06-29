@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Our Member</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Our Member All JUM GU</h1>
+    <p>
+        {{all_member}}
+    </p>
+    <hr>
+    <h3>Filter Country Code 67</h3>
+    <p>
+        {{filter_member}}
+    </p>
+    <table>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Country Code</th>
+            <th scope="col">Image URL</th>
+            <th scope="col">Token</th>
+            <th scope="col">Created</th>
+            <th scope="col">Last Visit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for member in all_member %}
+          <tr>
+            <!-- {{forloop.counter}} is counter index under loop for -->
+            <th scope="row">{{forloop.counter}}</th> 
+            <td>{{member.id}}</td>
+            <td>{{member.firstName}}</td>
+            <td>{{member.lastName}}</td>
+            <td>{{member.email}}</td>
+            <td>{{member.phone}}</td>
+            <td>{{member.countrycode}}</td>
+            <td>{{member.imageUrl}}</td>
+            <td>{{member.token}}</td>
+            <td>{{member.created}}</td>
+            <td>{{member.lastVisit}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock %}
