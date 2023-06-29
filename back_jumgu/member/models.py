@@ -10,12 +10,15 @@ import uuid
 
 class Member(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    firstName = models.CharField(max_length=40,null=True)
-    lastName = models.CharField(max_length=40,null=True)
+    firstName = models.CharField(max_length=40, null=True, blank=True)
+    lastName = models.CharField(max_length=40, null=True, blank=True)
     email = models.CharField(max_length=80)
-    phone = models.IntegerField(null=True)
-    countrycode = models.IntegerField(null=True)
-    imageUrl = models.CharField(max_length=100,null=True)
-    token = models.CharField(max_length=100,null=True)
+    phone = models.IntegerField(null=True, blank=True)
+    countrycode = models.IntegerField(null=True, blank=True)
+    imageUrl = models.CharField(max_length=100, null=True, blank=True)
+    token = models.CharField(max_length=100, null=True, blank=True)
     created = models.DateField(auto_now_add=True)
-    lastVisit = models.CharField(max_length=40)
+    lastVisit = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return "email : " + self.email
